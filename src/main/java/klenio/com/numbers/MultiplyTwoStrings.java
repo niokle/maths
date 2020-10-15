@@ -1,3 +1,5 @@
+package klenio.com.numbers;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -16,7 +18,7 @@ public class MultiplyTwoStrings {
         boolean newLine = true;
         int lineNo = -1;
 
-        for (int s1 = 0; s1 < string1.length() * string2.length(); s1++) {
+        for (int i = 0; i < string1.length() * string2.length(); i++) {
 
             if (colStart) {
                 colStartValue = col;
@@ -71,8 +73,8 @@ public class MultiplyTwoStrings {
 
         int sumLineValues = 0;
         int restPreviousLine = 0;
-        for (int s1 = 0; s1 < string1.length() + string2.length() - 1; s1++) {
-            sumLineValues = lines.get(s1).getSumLineValues() + restPreviousLine;
+        for (int i = 0; i < string1.length() + string2.length() - 1; i++) {
+            sumLineValues = lines.get(i).getSumLineValues() + restPreviousLine;
             result = sumLineValues%10 + result;
             if (String.valueOf(sumLineValues).length() > 1) {
                 restPreviousLine = Integer.parseInt(String.valueOf(sumLineValues).substring(0, String.valueOf(sumLineValues).length() - 1));
@@ -104,10 +106,6 @@ class Line {
 
     }
 
-    public List<Point> getLine() {
-        return points;
-    }
-
     public void addPoint(Point point) {
         points.add(point);
     }
@@ -131,14 +129,6 @@ class Point {
         this.row = row;
     }
 
-    public Value getColumn() {
-        return column;
-    }
-
-    public Value getRow() {
-        return row;
-    }
-
     public int getMultiply() {
         return column.getValue() * row.getValue();
     }
@@ -151,10 +141,6 @@ class Value {
     public Value(int id, int value) {
         this.id = id;
         this.value = value;
-    }
-
-    public int getId() {
-        return id;
     }
 
     public int getValue() {
