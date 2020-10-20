@@ -16,24 +16,20 @@ public class AddTwoStrings {
         int string1value = 0;
         int string2value = 0;
         for (int i = 0; i < max; i++) {
-            if (string1list.size() - 1 - i < 0) {
-                string1value = 0;
-            } else {
-                string1value = string1list.get(string1list.size() - 1 - i);
-            }
-
-            if (string2list.size() - 1 - i < 0) {
-                string2value = 0;
-            } else {
-                string2value = string2list.get(string2list.size() - 1 - i);
-            }
-
+            string1value = getCorrectValue(string1list, i);
+            string2value = getCorrectValue(string2list, i);
             value = (string1value + string2value + rest)%10;
             tempRest = (string1value + string2value + rest) - value;
             rest = tempRest / 10;
-
             result = value + result;
         }
         return result;
+    }
+
+    private static int getCorrectValue(List<Integer> list, int position) {
+        if (list.size() - 1 - position < 0) {
+            return 0;
+        }
+        return list.get(list.size() - 1 - position);
     }
 }
