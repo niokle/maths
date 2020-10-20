@@ -1,5 +1,6 @@
+package klenio.com.numbers;
+
 import junit.framework.TestCase;
-import klenio.com.numbers.MultiplyTwoStrings;
 import org.junit.Assert;
 import org.junit.Test;
 
